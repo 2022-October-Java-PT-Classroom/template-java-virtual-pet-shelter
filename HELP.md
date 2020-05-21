@@ -2,18 +2,15 @@
 
 So, you have some experience under your belt in the care and feeding of a virtual pet. It's time to share that with the community! Time to volunteer! 
 
-Design a game that allows you to play the role of a pet shelter worker!
-
-## Setup
-- [ ] Update the README.md file in your project folder to describe what you've done with your project. No fancy formatting is necessary. Just separate paragraphs with an empty line. (If you'd like to learn more about Markdown formatting, check out the [Github Markdown Guide](https://guides.github.com/features/mastering-markdown/).)
+Build upon your Virtual Pet project that allows you to care for multiple pets in a virtual pet shelter!
 
 ## Details
 
-We're going to use TDD to drive the creation of an application that simulates you taking care of the pets in a shelter.
+In our Virtual Pet project, we created a pet from a `VirtualPet` class and set up a game loop for user interaction in `VirtualPetApp` class. For this project, we will be creating a `VirtualPetShelter` class that allows the user to house and care for a collection of pets. The ideal way to organize your code would be to have your `VirtualPetApp` call methods from `VirtualPetShelter` which interact with our `VirtualPet` objects. 
 
-Include a game loop in this project, too. It should query the user, then call the appropriate method(s) on `VirtualPetShelter` and/or `VirtualPet`. In general, your `VirtualPetApp` should talk to your `VirtualPetShelter`, and your `VirtualPetShelter` should talk to your `VirtualPet`. Try to avoid `VirtualPetApp` talking directly to `VirtualPet` instances, apart from accessing basic information about pets (via `get*` methods).
+We encourage you to use TDD on this project, but it is not required to attain a passing grade. If you feel trying to incorporate testing would be a barrier to your completing the project before the deadline, forgo it. 
 
-### Example Interactions
+### Example Console Output And User Interaction
 
 ```
 Thank you for volunteering at Big Al\'s Virtual Pet Shelter and Delicatessen!
@@ -35,25 +32,41 @@ What would you like to do next?
 4. Adopt a pet
 5. Admit a pet
 6. Quit
+
+You feed the pets!
+
+This is the status of your pets:
+
+Name	|Hunger	|Thirst	|Boredom
+--------|-------|-------|-------
+Joey	|73     |39     |28
+Johnny	|59     |54     |7
+Dee Dee	|29     |23     |93
+Tommy	|49     |24     |42
 ```
+Note that after feeding all the pets, the Hunger went down by 10 while Thirst and Boredom went up by 5. In this example, feeding the pet decreased Hunger by 15 while the required tick() method raised Hunger, Thirst, and Boredom by 5. 
 
 #### Example Pet Selection Interaction
 
 ```bash
 Ok, so you\'d like to play with a pet. Please choose one:
 
-[Joey] looks like he\'s seen better days.
-[Johnny] is a bit nervous.
-[Dee Dee] probably didn\'t start with that many legs.
-[Tommy] smells like a Stargazer lily fresh with morning dew.
+[Joey] 
+[Johnny]
+[Dee Dee]
+[Tommy] 
 
 Which pet would you like to play with?
 Tommy
 
 Ok, you play with Tommy.
 ```
+Tommy's Boredom would be lowered, the tick() method effects every pet in the shelter, and the user is returned to the main menu
 
 ## Required Tasks to be completed in the order you feel is necessary
+
+### Setup
+- [ ] Update the README.md file in your project folder to describe what you've done with your project. No fancy formatting is necessary. Just separate paragraphs with an empty line. (If you'd like to learn more about Markdown formatting, check out the [Github Markdown Guide](https://guides.github.com/features/mastering-markdown/).)
 
 ### VirtualPetShelterApp class
 
@@ -97,16 +110,9 @@ In addition to the requirements from [last week's project](./virtual-pet):
  
 ### Grading
 Your grading will be based on three areas:
-- Test Driven Development
 - Working Software
 - Clean Code
-
-#### Test Driven Development 
-You should write your code by writing tests first.  If you do so, each public method you write should have a unit test that covers its behavior.  The test classes should also be well maintained and follow the principles of clean code.  These are the things we are looking for with regards to Test Driven Development:
-
-- 75% of your public methods (excepting the `main()` in your app class) should be covered by unit tests.
-- The principles of _Clean Code_ as described below apply to your test classes.
-- All tests pass.
+- Test Driven Development (will be assessed but will not required to pass) 
 
 #### Working Software
 Working software consists of does the application run and how well you met the requirements.  Of the 30 required tasks above, we need to see 25 complete for this category to be considered PASSING.
@@ -121,6 +127,9 @@ Clean code deals with how your code is written.  Is it readable, easy to underst
 
 
 We are looking for adherence to all four of the above principles for this category to be considered PASSING.
+
+#### Test Driven Development 
+Should you decide to go with full TDD approach, write your code by writing tests first.  Each public method you write should have a unit test that covers its behavior.  Try to apply the principles of clean code to your test classes. 
 
 ## Stretch Tasks
 
